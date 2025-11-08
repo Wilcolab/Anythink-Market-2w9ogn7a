@@ -1,0 +1,18 @@
+"Make a function to convert text to snake case"
+
+function convertToSnakeCase(text) {
+    return text
+        // Replace spaces and hyphens with underscores
+        .replace(/[\s-]+/g, '_')
+        // Convert camelCase to snake_case
+        .replace(/([a-z])([A-Z])/g, '$1_$2')
+        // Remove any characters that aren't letters, numbers, or underscores
+        .replace(/[^a-zA-Z0-9_]/g, '')
+        // Convert to lowercase
+        .toLowerCase();
+}
+
+// Example usage:
+// convertToSnakeCase("Hello World") -> "hello_world"
+// convertToSnakeCase("camelCase") -> "camel_case"
+// convertToSnakeCase("This-is-a-test") -> "this_is_a_test"

@@ -1,0 +1,126 @@
+zero-shot
+
+Make a function to convert text to snake case
+
+
+basic prompt
+
+create a function that converts string to camelCase.
+no space between words
+ex.: you will shine -> youWillShine
+
+
+few_shot_prompt
+
+Write a JavaScript function toCamelCase that converts strings to camelCase. 
+Here are some examples: first name → firstName user_id → userId SCREEN_NAME → screenName mobile-number → mobileNumber 
+Implement the function to handle these cases.
+
+
+refined prompt
+
+Write a Javascript function to convert strings to camelCase.
+- lowecase all words
+- if have ponctuaction, special characters, emojis or numbers, replace with blank space
+- remove all spaces and get together the words
+- the first letter of the first word is lowecase, all others are Uppercase
+Examples: 
+I like to play videogame -> iLikeToPlayVideogame
+Prompt engineering is awesome -> promptEngineeringIsAwesome
+The 23 street is far fr$om &here ->  theTwentyThreeStreetIsFarFromHere
+
+To make your prompt even more robust, consider adding:
+
+    Error handling for invalid inputs (e.g., non-string inputs).
+    Consideration for multiple word separators, like hyphens and underscores.
+    Handling cases with abbreviations or acronyms to keep them intact without converting to lowercase.
+
+
+Refined v2
+
+Write a Javascript function to convert strings to camelCase.
+- lowecase all words
+- if have ponctuaction, special characters, emojis, hyphens or unserscores replace with blank space
+- replace numbers to their written version
+- remove all spaces and get together the words
+- the first letter of the first word is lowecase, all others are Uppercase
+- keep abbreviations and acronyms intacted
+- show descriptive message if error of input
+
+Examples: 
+I like to play videogame -> iLikeToPlayVideogame
+Prompt engineering is awesome -> promptEngineeringIsAwesome
+The 23 street is far fr$om &here ->  theTwentyThreeStreetIsFarFromHere
+OECD is an international organization of 38 member countries -> OECDIsAnInternationalOrganizationOf38MemberCountries
+
+
+Chain prompt
+
+create a JavaScript function called totoKebabCase. 
+- lowercase all words
+- separete them by '-'
+- Hello Worlds -> hello-world
+
+v2
+
+create a JavaScript function called totoKebabCase 
+- convert all input words to lowercase
+- replace all spaces between words with hyphen ('-')
+- replace ponctuations, emojis, special characters with space
+- trim whitespaces from the input before processing
+- handle cases like empty strings ou null input
+- the proper language is english
+- show error message for input
+- Hello World -> hello-world
+
+v3
+
+Task: Create a JavaScript function named totoKebabCase that robustly converts an input string into kebab-case.
+
+The function must follow this specific order of operations to handle various inputs correctly.
+
+Functional Requirements:
+
+    Input Validation:
+
+        First, check if the input is null, undefined, or not of type string.
+
+        If the input is invalid, return the exact error message: "Input must be a valid string."
+
+    Handle Empty String:
+
+        If the input is a valid but empty string (""), return an empty string.
+
+    Trim Whitespace:
+
+        Remove all leading and trailing whitespace from the string (e.g., using trim()).
+
+    Lowercase:
+
+        Convert the entire string to lowercase (e.g., using toLowerCase()).
+
+    Normalize Characters:
+
+        Replace all characters that are not a lowercase letter (a-z), a number (0-9), or a whitespace character with a single space. This includes all punctuation, emojis, and other special symbols.
+
+    Hyphenate:
+
+        Replace all occurrences of one or more consecutive whitespace characters with a single hyphen (-).
+
+Examples to Test:
+
+    "Hello World" should return "hello-world"
+
+    " Hello! World 😃 " should return "hello-world"
+
+    "Another___Test" should return "another-test"
+
+    "Input with !punctuation." should return "input-with-punctuation"
+
+    "Multiple spaces" should return "multiple-spaces"
+
+    "ALL CAPS" should return "all-caps"
+
+    null should return "Input must be a valid string."
+
+    "" should return ""
